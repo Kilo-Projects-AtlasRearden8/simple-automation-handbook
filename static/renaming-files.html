@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renaming files — Simple Automation Handbook</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Renaming files</h1>
+  <div class="credit">Simple Automation Handbook &mdash; Published by <strong>Asdale Dynamics, LLC</strong>.</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="safety.html">Safety first</a>
+    <a href="sorting-downloads.html">Sorting downloads</a>
+    <a href="bill-reminders.html">Bill reminders</a>
+    <a href="saving-webpages.html">Saving webpages</a>
+    <a href="checklist.html">Printable checklist</a>
+  </nav>
+</header>
+
+<main>
+<p>Got a folder of files named <code>IMG_0492.jpg</code>, <code>document-final-v2.pdf</code>, <code>screenshot (1).png</code>? This guide shows you how to rename them in bulk so they&rsquo;re easy to find later.</p>
+
+<h2>What this does</h2>
+<p>Renames files in a folder according to a simple pattern you choose:</p>
+<ul>
+<li>Add a prefix (e.g. <code>vacation-2026-IMG_0492.jpg</code>)</li>
+<li>Add a suffix (e.g. <code>IMG_0492-vacation-2026.jpg</code>)</li>
+<li>Add a running number (e.g. <code>photo-001.jpg</code>, <code>photo-002.jpg</code>)</li>
+<li>Replace spaces with dashes or underscores</li>
+<li>Lowercase everything</li>
+</ul>
+<p>The script shows you what it <em>would</em> do before it renames anything (dry-run mode). You only rename for real when you say so.</p>
+
+<h2>Step 1: Make a test copy</h2>
+<pre><code>cp -r ~/Photos ~/Photos-Test</code></pre>
+
+<h2>Step 2: Preview the changes (dry run)</h2>
+<pre><code>python3 scripts/rename_files.py ~/Photos-Test --prefix vacation-2026 --dry-run</code></pre>
+<p>This prints the old name &rarr; new name mapping without changing anything. Review it carefully.</p>
+
+<h2>Step 3: Rename for real</h2>
+<p>When the preview looks right, drop the <code>--dry-run</code> flag:</p>
+<pre><code>python3 scripts/rename_files.py ~/Photos-Test --prefix vacation-2026</code></pre>
+
+<h2>Step 4: Check the results</h2>
+<p>Open the folder and confirm the names look the way you want. If something&rsquo;s wrong, delete the test folder and try again with different options.</p>
+
+<div class="card">
+<h3>The script</h3>
+<p>See <code>scripts/rename_files.py</code>. Read it before running it &mdash; it&rsquo;s short and every line is explained.</p>
+</div>
+
+<div class="rule"><b>Safety reminder:</b> This script renames files in place (on the folder you point it at). That&rsquo;s why we always test on a copy first. Your originals stay untouched until you&rsquo;re sure.</div>
+
+<p class="small">Published by Asdale Dynamics, LLC (Indiana, formed October 2026). Credit: Dylan Asdale, registered nurse turned AI author and founder of Asdale Dynamics, LLC.</p>
+</main>
+
+<footer>
+Simple Automation Handbook &mdash; Asdale Dynamics, LLC. MIT License. Copyright (c) 2026 Asdale Dynamics, LLC.
+</footer>
+</div>
+</body>
+</html>

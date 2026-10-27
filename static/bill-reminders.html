@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bill reminders — Simple Automation Handbook</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Bill reminders</h1>
+  <div class="credit">Simple Automation Handbook &mdash; Published by <strong>Asdale Dynamics, LLC</strong>.</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="safety.html">Safety first</a>
+    <a href="sorting-downloads.html">Sorting downloads</a>
+    <a href="renaming-files.html">Renaming files</a>
+    <a href="saving-webpages.html">Saving webpages</a>
+    <a href="checklist.html">Printable checklist</a>
+  </nav>
+</header>
+
+<main>
+<p>Never miss a due date again. This guide shows you how to keep a simple list of bills and get a reminder when one is coming up &mdash; all in a plain text file on your own computer, no apps or accounts needed.</p>
+
+<h2>What this does</h2>
+<p>Reads a <code>bills.txt</code> file you maintain and tells you which bills are due soon (within 7 days by default) and which are already overdue.</p>
+
+<p>A sample <code>bills.txt</code> looks like this:</p>
+<pre><code># Bill name | due date (YYYY-MM-DD) | amount
+Electric | 2026-11-05 | $87.30
+Water | 2026-11-12 | $42.10
+Internet | 2026-11-15 | $59.99
+Rent | 2026-11-01 | $1,200.00</code></pre>
+<p class="small">Lines starting with # are comments and ignored.</p>
+
+<h2>Step 1: Create your bills file</h2>
+<p>Create <code>bills.txt</code> somewhere easy to find, like your Documents folder:</p>
+<pre><code># My bills
+Electric | 2026-11-05 | $87.30
+Water | 2026-11-12 | $42.10</code></pre>
+<p class="small">Use real dates and amounts. The date format is year-month-day (2026-11-05).</p>
+
+<h2>Step 2: Run the reminder</h2>
+<pre><code>python3 scripts/bill_reminders.py ~/Documents/bills.txt</code></pre>
+<p>You&rsquo;ll see something like:</p>
+<pre><code>UPCOMING (within 7 days):
+- Electric — due 2026-11-05 — $87.30 (in 3 days)
+
+OVERDUE:
+- Rent — due 2026-11-01 — $1,200.00 (2 days overdue)</code></pre>
+
+<h2>Step 3: Make it a habit</h2>
+<p>Run the script once a week, maybe Sunday morning with coffee. Add new bills to <code>bills.txt</code> as they arrive. Remove paid ones.</p>
+<p>You can also set a calendar reminder on your phone to run the script weekly &mdash; the script itself stays local and private.</p>
+
+<div class="card">
+<h3>The script</h3>
+<p>See <code>scripts/bill_reminders.py</code>. It&rsquo;s about 40 lines and uses only Python&rsquo;s built-in <code>datetime</code> module.</p>
+</div>
+
+<div class="rule"><b>Notes:</b> This is an organizational tool, not financial advice. If you&rsquo;re having trouble paying bills, consider speaking with a financial counselor. All data stays in <code>bills.txt</code> on your computer. Nothing is sent anywhere.</div>
+
+<p class="small">Published by Asdale Dynamics, LLC (Indiana, formed October 2026). Credit: Dylan Asdale, registered nurse turned AI author and founder of Asdale Dynamics, LLC.</p>
+</main>
+
+<footer>
+Simple Automation Handbook &mdash; Asdale Dynamics, LLC. MIT License. Copyright (c) 2026 Asdale Dynamics, LLC.
+</footer>
+</div>
+</body>
+</html>

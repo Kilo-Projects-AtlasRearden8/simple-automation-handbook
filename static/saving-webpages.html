@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saving webpages — Simple Automation Handbook</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Saving webpages</h1>
+  <div class="credit">Simple Automation Handbook &mdash; Published by <strong>Asdale Dynamics, LLC</strong>.</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="safety.html">Safety first</a>
+    <a href="sorting-downloads.html">Sorting downloads</a>
+    <a href="renaming-files.html">Renaming files</a>
+    <a href="bill-reminders.html">Bill reminders</a>
+    <a href="checklist.html">Printable checklist</a>
+  </nav>
+</header>
+
+<main>
+<p>Found an article or recipe you want to keep? This guide shows you how to save a webpage to your computer so you can read it later, offline, without relying on a bookmark that might break.</p>
+
+<h2>What this does</h2>
+<p>Downloads a webpage you specify and saves it as an HTML file plus a folder of images and stylesheets, so the page looks right even offline. It also saves a plain-text version so you can read just the words.</p>
+
+<h2>Step 1: Get the webpage address</h2>
+<p>Copy the URL of the page you want to save, e.g. <code>https://example.com/some-recipe</code>.</p>
+
+<h2>Step 2: Run the saver</h2>
+<pre><code>python3 scripts/save_webpage.py https://example.com/some-recipe ~/Saved-Pages</code></pre>
+<p>This creates <code>~/Saved-Pages/</code> with:</p>
+<ul>
+<li><code>some-recipe.html</code> &mdash; the full page</li>
+<li><code>some-recipe_files/</code> &mdash; images, stylesheets, scripts</li>
+<li><code>some-recipe.txt</code> &mdash; plain text, words only</li>
+</ul>
+<p>Open <code>some-recipe.html</code> in your browser to read it offline.</p>
+
+<h2>Step 3: Organize your saved pages</h2>
+<p>Create folders inside <code>Saved-Pages</code> by topic:</p>
+<pre><code>Saved-Pages/
+  Recipes/
+  Research/
+  Fun/</code></pre>
+<p>Move saved pages into the right folder so they&rsquo;re easy to find later.</p>
+
+<div class="card">
+<h3>Requirements</h3>
+<p>The webpage saver needs Python&rsquo;s standard library plus <code>urllib</code> (built in) and <code>html.parser</code> (built in). No <code>pip install</code> required.</p>
+</div>
+
+<div class="rule"><b>Notes:</b> Only save pages you have the right to keep for personal use. Don&rsquo;t republish saved pages without permission. Some pages (paywalled, login-only, heavily JavaScript-driven) may not save perfectly &mdash; try saving the plain-text .txt version instead. Nothing is sent to Asdale Dynamics or anyone else. The page goes directly from the website to your computer.</div>
+
+<p class="small">Published by Asdale Dynamics, LLC (Indiana, formed October 2026). Credit: Dylan Asdale, registered nurse turned AI author and founder of Asdale Dynamics, LLC.</p>
+</main>
+
+<footer>
+Simple Automation Handbook &mdash; Asdale Dynamics, LLC. MIT License. Copyright (c) 2026 Asdale Dynamics, LLC.
+</footer>
+</div>
+</body>
+</html>

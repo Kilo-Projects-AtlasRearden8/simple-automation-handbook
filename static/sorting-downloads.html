@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorting downloads — Simple Automation Handbook</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Sorting your downloads</h1>
+  <div class="credit">Simple Automation Handbook &mdash; Published by <strong>Asdale Dynamics, LLC</strong>.</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="safety.html">Safety first</a>
+    <a href="renaming-files.html">Renaming files</a>
+    <a href="bill-reminders.html">Bill reminders</a>
+    <a href="saving-webpages.html">Saving webpages</a>
+    <a href="checklist.html">Printable checklist</a>
+  </nav>
+</header>
+
+<main>
+<p>Your Downloads folder is probably a mess: PDFs, images, installers, and who knows what else all in one pile. This guide shows you how to sort them into neat folders by file type &mdash; safely, one step at a time.</p>
+
+<h2>What this does</h2>
+<p>Looks at every file in a folder and moves it into a subfolder named after its type:</p>
+<ul>
+<li><strong>Documents/</strong> &mdash; .pdf, .doc, .docx, .txt, .rtf</li>
+<li><strong>Images/</strong> &mdash; .jpg, .jpeg, .png, .gif, .webp, .bmp</li>
+<li><strong>Audio/</strong> &mdash; .mp3, .wav, .m4a, .ogg</li>
+<li><strong>Video/</strong> &mdash; .mp4, .mov, .avi, .mkv</li>
+<li><strong>Archives/</strong> &mdash; .zip, .rar, .7z, .tar, .gz</li>
+<li><strong>Installers/</strong> &mdash; .exe, .dmg, .pkg, .msi</li>
+<li><strong>Other/</strong> &mdash; anything that doesn&rsquo;t match the above</li>
+</ul>
+<p class="small">Files without extensions (and folders already in Downloads) are left alone.</p>
+
+<h2>Step 1: Make a test copy</h2>
+<p>Copy your Downloads folder to a test location first:</p>
+<ul>
+<li><strong>Windows:</strong> copy <code>Downloads</code> to <code>Downloads Test</code></li>
+<li><strong>Mac:</strong> right-click <code>Downloads</code> &rarr; Duplicate</li>
+<li><strong>Linux:</strong> <code>cp -r ~/Downloads ~/Downloads-Test</code></li>
+</ul>
+
+<h2>Step 2: Run the sorter</h2>
+<pre><code>python3 scripts/sort_downloads.py ~/Downloads-Test</code></pre>
+<p>Look at the result. Are files in the right folders? Did anything unexpected happen?</p>
+
+<h2>Step 3: Run on your real Downloads (optional)</h2>
+<p>Once you&rsquo;re happy, point it at your real Downloads folder:</p>
+<pre><code>python3 scripts/sort_downloads.py ~/Downloads</code></pre>
+<p>Or keep using the test folder forever. There&rsquo;s no rush.</p>
+
+<div class="card">
+<h3>The script</h3>
+<p>See <code>scripts/sort_downloads.py</code>. It&rsquo;s about 40 lines and you can read it end to end before running it.</p>
+<p><strong>Customizing:</strong> Want a folder for spreadsheets? Add .xlsx and .csv to the Documents group in the script. Want to keep installers out? Remove the Installers group and they&rsquo;ll fall into Other. It&rsquo;s your script &mdash; edit it.</p>
+</div>
+
+<div class="rule"><b>Safety reminder:</b> Test on a copy first. Your originals stay untouched until you&rsquo;re sure.</div>
+
+<p class="small">Published by Asdale Dynamics, LLC (Indiana, formed October 2026). Credit: Dylan Asdale, registered nurse turned AI author and founder of Asdale Dynamics, LLC.</p>
+</main>
+
+<footer>
+Simple Automation Handbook &mdash; Asdale Dynamics, LLC. MIT License. Copyright (c) 2026 Asdale Dynamics, LLC.
+</footer>
+</div>
+</body>
+</html>
